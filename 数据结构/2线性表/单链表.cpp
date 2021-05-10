@@ -67,15 +67,22 @@ Lnode *getElem(LinkList &L, int i) {
   }
   return p;
 }
-
 void printList(LinkList &L) {
-  Lnode *p = L;
-  int i = 0;
-  while (p) {
-    Lnode *t;
-    t = getElem(L, i);
-    printf("%d\n", t->data);
-    i++;
+  Lnode *p = L->next;
+  while (p != NULL) {
+    printf("%d\n", p->data);
     p = p->next;
   }
 }
+
+// void printList(LinkList &L) {
+//   Lnode *p = L;
+//   int i = 0;
+//   while (p) {
+//     Lnode *t;
+//     t = getElem(L, i);
+//     printf("%d\n", t->data);
+//     i++;
+//     p = p->next;
+//   }
+// }
