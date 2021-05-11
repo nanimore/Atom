@@ -22,6 +22,7 @@ int main() {
   listInsert(L, 1, 1);
   listInsert(L, 2, 2);
   listInsert(L, 3, 3);
+  printf("%d\n", getElem(L, 2)->data);
   printList(L);
 
   return 0;
@@ -55,6 +56,20 @@ bool listInsert(DLinkList &L, int i, int data) {
   }
   p->next = t;
   return true;
+}
+
+DNode *getElem(DLinkList &L, int i) {
+  DNode *p = L->next;
+  int j = 1;
+  if (i == 0)
+    return L;
+  if (i < 0)
+    return NULL;
+  while (j < i) {
+    p = p->next;
+    j++;
+  }
+  return p;
 }
 
 void printList(DLinkList &L) {
